@@ -1,22 +1,50 @@
 "use client";
-import Logo from "./new/Logo";
 import { motion } from "motion/react";
-import { Loader2 } from "lucide-react";
 
 const Loading = () => {
   return (
-    <div className="fixed min-h-screen w-full bg-white left-0 top-0 flex items-center justify-center">
-      <div className="flex flex-col justify-center items-center gap-1">
-        <Logo />
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0a0a0a] text-white">
+      <div className="relative flex flex-col items-center justify-center gap-4">
+        <div className="overflow-hidden flex items-center">
+          {["C", "L", "O", "T", "E", "X"].map((letter, index) => (
+            <motion.span
+              key={index}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+                ease: [0.33, 1, 0.68, 1]
+              }}
+              className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic inline-block"
+            >
+              {letter}
+            </motion.span>
+          ))}
+        </div>
         <motion.div
-          animate={{ scale: [1, 1.1, 1] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-          className="flex items-center space-x-2 text-green-800"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8, duration: 0.5 }}
+          className="flex flex-col items-center gap-2"
         >
-          <Loader2 className="animate-spin" />
-          <span className="font-semibold tracking-wide">
-            NUZII is loading...
-          </span>
+          <p className="text-xs font-bold tracking-[0.5em] uppercase text-neutral-500">
+            Premium Streetwear
+          </p>
+          <motion.div
+            className="h-[2px] bg-white w-24 rounded-full overflow-hidden mt-4"
+          >
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: "100%" }}
+              transition={{
+                repeat: Infinity,
+                duration: 1.5,
+                ease: "easeInOut"
+              }}
+              className="h-full w-full bg-neutral-500/50"
+            />
+          </motion.div>
         </motion.div>
       </div>
     </div>
