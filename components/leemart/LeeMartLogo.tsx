@@ -5,12 +5,12 @@ interface Props {
     className?: string;
 }
 
-const ClotexLogo = ({ className }: Props) => {
+const LeeMartLogo = ({ className }: Props) => {
     return (
         <Link href={"/"} className={cn("text-2xl font-black tracking-tighter uppercase text-white", className)}>
-            CLOTEX<span className="text-gray-500">.</span>
+            LEE MART<span className="text-gray-500">.</span>
         </Link>
     );
 };
 
-export default ClotexLogo;
+export default LeeMartLogo;

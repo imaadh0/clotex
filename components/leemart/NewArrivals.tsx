@@ -1,14 +1,13 @@
-
 "use client";
 
-import { CLOTEX_DATA } from "@/constants/clotex-data";
+import { LEEMART_DATA } from "@/constants/leemart-data";
 import Container from "../Container";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const NewArrivals = () => {
     return (
-        <section className="bg-clotexDark py-20 border-b border-clotexGray">
+        <section className="bg-leemart-dark py-20 border-b border-leemart-gray">
             <Container>
                 <div className="flex justify-between items-end mb-12">
                     <h2 className="text-3xl md:text-4xl font-black uppercase text-white tracking-tight">
@@ -25,9 +24,9 @@ const NewArrivals = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-12">
-                    {CLOTEX_DATA.newArrivals.map((product) => (
+                    {LEEMART_DATA.newArrivals.map((product) => (
                         <div key={product._id} className="group relative">
-                            <div className="aspect-[4/5] bg-clotexGray overflow-hidden mb-4 relative">
+                            <div className="aspect-[4/5] bg-leemart-gray overflow-hidden mb-4 relative">
                                 {/* Badge */}
                                 <div className="absolute top-4 left-4 bg-white text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider z-10">
                                     New

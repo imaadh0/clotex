@@ -158,7 +158,7 @@ const SearchBar = () => {
                 ) : (
                   <p className="text-neutral-500 flex items-center justify-center gap-1">
                     <Search className="w-5 h-5" />
-                    Search and explore products from CLOTEX.
+                    Search and explore products from LEE MART.
                   </p>
                 )}
               </div>

@@ -42,7 +42,7 @@ const ProductInfo = ({ product }: Props) => {
                             </DialogHeader>
                             <div className="py-6">
                                 <p className="text-neutral-400 text-sm mb-6 font-light uppercase tracking-widest leading-relaxed border-b border-neutral-800 pb-4">
-                                    Measurements below are in inches. Clotex fits are designed to be slightly oversized.
+                                    Measurements below are in inches. Lee Mart fits are designed to be slightly oversized.
                                 </p>
                                 <div className="overflow-x-auto">
                                     <table className="w-full text-left text-sm">

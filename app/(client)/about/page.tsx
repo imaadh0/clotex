@@ -1,6 +1,6 @@
 "use client";
 
-import { CLOTEX_DATA } from "@/constants/clotex-data";
+import { LEEMART_DATA } from "@/constants/leemart-data";
 import Image from "next/image";
 import Link from "next/link";
 import { Layers, Ruler, ShieldCheck } from "lucide-react";
@@ -9,7 +9,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const AboutPage = () => {
-    const { about } = CLOTEX_DATA;
+    const { about } = LEEMART_DATA;
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollY } = useScroll();
 
@@ -30,7 +30,7 @@ const AboutPage = () => {
                 <motion.div style={{ y, opacity }} className="absolute inset-0 z-0">
                     <Image
                         src={about.hero.image}
-                        alt="About Clotex Hero"
+                        alt="About Lee Mart Hero"
                         fill
                         className="object-cover grayscale opacity-60 scale-105 blur-sm"
                         priority

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ClotexLogo from "./clotex/ClotexLogo";
+import LeeMartLogo from "./leemart/LeeMartLogo";
 import SocialMedia from "./new/SocialMedia";
 import { customerCareLinks } from "@/constants";
 // TEMPORARILY COMMENTED OUT - Sanity
@@ -13,13 +13,13 @@ const Footer = async () => {
   const categories = DUMMY_CATEGORIES;
 
   return (
-    <footer className="bg-clotexDark border-t border-gray-800 pt-16 pb-8">
+    <footer className="bg-leemart-dark border-t border-gray-800 pt-16 pb-8">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Main footer content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          {/* Column 1: About Clotex */}
+          {/* Column 1: About Lee Mart */}
           <div className="space-y-6">
-            <ClotexLogo className="mb-4 block" />
+            <LeeMartLogo className="mb-4 block" />
             <p className="text-gray-400 text-sm leading-relaxed">
               Premium men's streetwear redefining urban fashion through minimalist aesthetics and superior quality.
             </p>
@@ -102,7 +102,7 @@ const Footer = async () => {
 
         {/* Bottom copyright section */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500 uppercase tracking-wide">
-          <p>© {new Date().getFullYear()} Clotex. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Lee Mart. All rights reserved.</p>
           <div className="flex gap-4">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>

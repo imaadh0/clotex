@@ -63,7 +63,7 @@ const SignUpPage = () => {
                             Create Account
                         </h1>
                         <p className="text-gray-400 text-sm">
-                            Join Clotex for exclusive offers and faster checkout
+                            Join Lee Mart for exclusive offers and faster checkout
                         </p>
                     </div>
 

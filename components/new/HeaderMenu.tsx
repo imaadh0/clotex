@@ -31,7 +31,7 @@ const HeaderMenu = ({ categories }: { categories: FEATURED_CATEGORIES_QUERYResul
         </button>
 
         <div className="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
-          <div className="bg-clotexGray border border-gray-800 p-4 min-w-[200px] flex flex-col gap-2 shadow-2xl">
+          <div className="bg-leemart-gray border border-gray-800 p-4 min-w-[200px] flex flex-col gap-2 shadow-2xl">
             <Link
               href="/shop"
               className="px-4 py-2 hover:bg-white hover:text-black rounded-sm text-gray-300 transition-colors normal-case text-xs font-bold tracking-wider"

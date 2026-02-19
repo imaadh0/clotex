@@ -3,7 +3,7 @@ import { usePathname } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { createPortal } from "react-dom";
-import ClotexLogo from "../clotex/ClotexLogo";
+import LeeMartLogo from "../leemart/LeeMartLogo";
 import Link from "next/link";
 import { useOutsideClick } from "@/hooks";
 import SocialMedia from "./SocialMedia";
@@ -66,14 +66,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, categories }) => {
             exit={{ x: "-100%" }}
             transition={{ type: "tween", ease: [0.32, 0.72, 0, 1], duration: 0.5 }}
             ref={sidebarRef}
-            className="fixed inset-y-0 left-0 z-50 w-full md:w-[450px] bg-[#050505] text-white flex flex-col xl:hidden"
+            className="fixed inset-y-0 left-0 z-50 w-full md:w-[450px] bg-leemart-dark text-white flex flex-col xl:hidden"
           >
             {/* Background Texture/Gradient */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-neutral-900/40 via-[#050505] to-[#050505] pointer-events-none" />
 
             {/* Header */}
             <div className="relative z-10 px-8 py-8 flex items-center justify-between">
-              <ClotexLogo className="scale-110" />
+              <LeeMartLogo className="scale-110" />
               <button
                 onClick={onClose}
                 className="group relative p-3 rounded-full overflow-hidden bg-white/5 hover:bg-white/10 transition-colors border border-white/5"

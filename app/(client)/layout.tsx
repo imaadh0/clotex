@@ -10,7 +10,7 @@ import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "@/context/AuthContext";
 
 export const metadata: Metadata = {
-  title: "CLOTEX | Premium Streetwear",
+  title: "Lee Mart | Premium Streetwear",
   description: "Redefine Your Edge — Premium Men's Streetwear Collection.",
 };
 

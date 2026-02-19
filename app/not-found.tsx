@@ -1,4 +1,4 @@
-import ClotexLogo from "@/components/clotex/ClotexLogo";
+import LeeMartLogo from "@/components/leemart/LeeMartLogo";
 import Link from "next/link";
 import React from "react";
 
@@ -8,7 +8,7 @@ const NotFoundPage = () => {
       <div className="h-full min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 ">
         <div className="max-w-md w-full space-y-12">
           <div className="text-center">
-            <ClotexLogo className="text-4xl" />
+            <LeeMartLogo className="text-4xl" />
 
             <h2 className="mt-12 text-6xl md:text-7xl font-black text-white uppercase tracking-tighter leading-tight">
               Lost in space?
@@ -22,7 +22,7 @@ const NotFoundPage = () => {
               href="/"
               className="w-full h-14 flex items-center justify-center px-4 py-2 border border-white bg-white text-black text-xs font-black uppercase tracking-widest hover:bg-transparent hover:text-white transition-all duration-300"
             >
-              Go to CLOTEX home
+              Go to LEE MART home
             </Link>
             <Link
               href="/shop"

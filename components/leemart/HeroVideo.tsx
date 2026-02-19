@@ -1,33 +1,37 @@
-
 "use client";
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { CLOTEX_DATA } from "@/constants/clotex-data";
+import { LEEMART_DATA } from "@/constants/leemart-data";
 import Container from "../Container";
 import Link from "next/link";
 
-const HeroParallax = () => {
+const HeroVideo = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollY } = useScroll();
 
-    // Parallax effect: Image moves slower than scroll
+    // Parallax effect: Video moves slower than scroll
     const y = useTransform(scrollY, [0, 1000], [0, 400]);
     const opacity = useTransform(scrollY, [0, 500], [1, 0.5]);
 
     return (
-        <div ref={containerRef} className="relative h-[95vh] w-full overflow-hidden bg-clotexDark">
-            {/* Parallax Background Image */}
+        <div ref={containerRef} className="relative h-[95vh] w-full overflow-hidden bg-leemart-dark">
+            {/* Video Background */}
             <motion.div
                 style={{ y, opacity }}
                 className="absolute inset-0 w-full h-full"
             >
                 <div className="absolute inset-0 bg-black/40 z-10" />
-                <img
-                    src={CLOTEX_DATA.hero.image}
-                    alt="Hero Background"
-                    className="w-full h-[120%] object-cover object-center"
-                />
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-[120%] object-cover"
+                >
+                    <source src="/hero-video/Whisk_kjmmbjn5ydoiljnj1iy0ymytcjy3qtlmjtyl1im.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
             </motion.div>
 
             {/* Content */}
@@ -38,7 +42,7 @@ const HeroParallax = () => {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="text-5xl md:text-8xl font-black tracking-tighter uppercase mb-4"
                 >
-                    {CLOTEX_DATA.hero.title}
+                    {LEEMART_DATA.hero.title}
                 </motion.h1>
 
                 <motion.p
@@ -47,7 +51,7 @@ const HeroParallax = () => {
                     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                     className="text-xl md:text-2xl font-light tracking-widest uppercase mb-10 text-gray-300"
                 >
-                    {CLOTEX_DATA.hero.subtitle}
+                    {LEEMART_DATA.hero.subtitle}
                 </motion.p>
 
                 <motion.div
@@ -56,10 +60,10 @@ const HeroParallax = () => {
                     transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                 >
                     <Link
-                        href={CLOTEX_DATA.hero.ctaLink}
+                        href={LEEMART_DATA.hero.ctaLink}
                         className="bg-white text-black px-10 py-4 font-bold tracking-wider uppercase hover:bg-gray-200 transition-colors"
                     >
-                        {CLOTEX_DATA.hero.ctaText}
+                        {LEEMART_DATA.hero.ctaText}
                     </Link>
                 </motion.div>
             </Container>
@@ -67,4 +71,4 @@ const HeroParallax = () => {
     );
 };
 
-export default HeroParallax;
+export default HeroVideo;

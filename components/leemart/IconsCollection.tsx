@@ -1,13 +1,12 @@
-
 "use client";
 
-import { CLOTEX_DATA } from "@/constants/clotex-data";
+import { LEEMART_DATA } from "@/constants/leemart-data";
 import Container from "../Container";
 import Link from "next/link";
 
 const IconsCollection = () => {
     return (
-        <section className="bg-clotexDark py-20">
+        <section className="bg-leemart-dark py-20">
             <Container>
                 <div className="flex justify-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-black uppercase text-white tracking-tight text-center">
@@ -16,8 +15,8 @@ const IconsCollection = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {CLOTEX_DATA.collections.map((collection, index) => (
-                        <div key={index} className="relative aspect-video group overflow-hidden bg-clotexGray">
+                    {LEEMART_DATA.collections.map((collection, index) => (
+                        <div key={index} className="relative aspect-video group overflow-hidden bg-leemart-gray">
                             <img
                                 src={collection.image}
                                 alt={collection.title}

@@ -44,7 +44,7 @@ const ContactPage = () => {
                         <div>
                             <h2 className="text-xl font-bold uppercase tracking-widest mb-4">Get in Touch</h2>
                             <p className="text-neutral-400 leading-relaxed max-w-md">
-                                Our team is available to assist with your orders, sizing inquiries, or any other feedback. Experience the premium support of Clotex LK.
+                                Our team is available to assist with your orders, sizing inquiries, or any other feedback. Experience the premium support of Lee Mart.
                             </p>
                         </div>
 
@@ -146,11 +146,11 @@ const ContactPage = () => {
                     <div className="relative z-20 h-full flex flex-col items-center justify-center text-center p-8">
                         <div className="bg-neutral-900/80 backdrop-blur-md p-8 rounded-2xl border border-white/10 shadow-2xl">
                             <MapPin className="w-10 h-10 text-white mx-auto mb-4" />
-                            <h3 className="text-2xl font-bold uppercase tracking-widest text-white mb-2">Clotex HQ</h3>
-                            <p className="text-neutral-400 font-medium tracking-wide">818 Main street, Polonnaruwa 51000</p>
+                            <h3 className="text-2xl font-bold uppercase tracking-widest text-white mb-2">Lee Mart HQ</h3>
+                            <p className="text-neutral-400 font-medium tracking-wide">264, Kahatapitiya, Gampola, Sri Lanka 20500</p>
                             <div className="mt-6">
                                 <a
-                                    href="https://maps.google.com/?q=818+Main+street,+Polonnaruwa+51000"
+                                    href="https://maps.google.com/?q=264,+Kahatapitiya,+Gampola,+Sri+Lanka+20500"
                                     target="_blank"
                                     className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-white hover:text-neutral-300 transition-colors border-b border-white pb-1"
                                 >

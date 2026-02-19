@@ -5,7 +5,7 @@ import Container from "./Container";
 // import { getAllCategories } from "@/sanity/helpers";
 import { DUMMY_CATEGORIES } from "@/constants/dummy-data";
 import HeaderMenu from "./new/HeaderMenu";
-import ClotexLogo from "./clotex/ClotexLogo";
+import LeeMartLogo from "./leemart/LeeMartLogo";
 import { ListOrdered } from "lucide-react";
 import CartIcon from "./new/CartIcon";
 import MobileMenu from "./new/MobileMenu";
@@ -22,7 +22,7 @@ const Header = async () => {
   const categories = DUMMY_CATEGORIES.slice(0, 3);
 
   return (
-    <header className="bg-clotexDark/80 backdrop-blur-md sticky top-0 z-50 border-b border-white/10 py-4 transition-all duration-300">
+    <header className="bg-leemart-dark/80 backdrop-blur-md sticky top-0 z-50 border-b border-white/10 py-4 transition-all duration-300">
       <Container className="flex items-center justify-between gap-4">
         {/* Left: Navigation Menu */}
         <div className="hidden xl:block w-1/3">
@@ -36,7 +36,7 @@ const Header = async () => {
 
         {/* Center: Logo */}
         <div className="w-1/3 flex justify-center">
-          <ClotexLogo />
+          <LeeMartLogo />
         </div>
 
         {/* Right: Utility Icons */}

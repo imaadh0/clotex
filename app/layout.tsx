@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "CLOTEX | Redefine Your Edge",
+  title: "Lee Mart | Redefine Your Edge",
   description: "Premium Men's Streetwear — Minimalist, bold, and crafted for the modern urban lifestyle.",
 };
 

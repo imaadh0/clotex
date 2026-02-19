@@ -6,7 +6,7 @@ const Loading = () => {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0a0a0a] text-white">
       <div className="relative flex flex-col items-center justify-center gap-4">
         <div className="overflow-hidden flex items-center">
-          {["C", "L", "O", "T", "E", "X"].map((letter, index) => (
+          {"LEE MART".split("").map((letter, index) => (
             <motion.span
               key={index}
               initial={{ y: "100%" }}
@@ -16,7 +16,7 @@ const Loading = () => {
                 delay: index * 0.1,
                 ease: [0.33, 1, 0.68, 1]
               }}
-              className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic inline-block"
+              className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic inline-block whitespace-pre"
             >
               {letter}
             </motion.span>

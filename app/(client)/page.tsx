@@ -1,12 +1,12 @@
 "use client";
 
-import HeroVideo from "@/components/clotex/HeroVideo";
-import NewArrivals from "@/components/clotex/NewArrivals";
-import IconsCollection from "@/components/clotex/IconsCollection";
+import HeroVideo from "@/components/leemart/HeroVideo";
+import NewArrivals from "@/components/leemart/NewArrivals";
+import IconsCollection from "@/components/leemart/IconsCollection";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-clotexDark overflow-x-hidden">
+    <main className="min-h-screen bg-leemart-dark overflow-x-hidden">
       <HeroVideo />
       <NewArrivals />
       <IconsCollection />
