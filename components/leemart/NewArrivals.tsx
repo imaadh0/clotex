@@ -4,6 +4,7 @@ import { LEEMART_DATA } from "@/constants/leemart-data";
 import Container from "../Container";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import PriceFormatter from "../PriceFormatter";
 
 const NewArrivals = () => {
     return (
@@ -25,7 +26,11 @@ const NewArrivals = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-12">
                     {LEEMART_DATA.newArrivals.map((product) => (
-                        <div key={product._id} className="group relative">
+                        <Link
+                            key={product._id}
+                            href={`/product/${product.slug}`}
+                            className="group relative block"
+                        >
                             <div className="aspect-[4/5] bg-leemart-gray overflow-hidden mb-4 relative">
                                 {/* Badge */}
                                 <div className="absolute top-4 left-4 bg-white text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider z-10">
@@ -41,14 +46,14 @@ const NewArrivals = () => {
                             </div>
 
                             <div className="">
-                                <h3 className="text-white font-bold text-sm tracking-wide uppercase mb-1">
+                                <h3 className="text-white font-bold text-sm tracking-wide uppercase mb-1 group-hover:underline decoration-1 underline-offset-4">
                                     {product.name}
                                 </h3>
-                                <p className="text-gray-400 text-xs font-medium tracking-wider">
-                                    LKR {product.price.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                                <p className="text-gray-400 text-xs font-medium tracking-wider pt-1">
+                                    <PriceFormatter amount={product.price} className="text-gray-400 text-xs font-medium" />
                                 </p>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
 

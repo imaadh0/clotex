@@ -16,7 +16,11 @@ const IconsCollection = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {LEEMART_DATA.collections.map((collection, index) => (
-                        <div key={index} className="relative aspect-video group overflow-hidden bg-leemart-gray">
+                        <Link
+                            key={index}
+                            href={collection.link}
+                            className="relative aspect-video group overflow-hidden bg-leemart-gray block"
+                        >
                             <img
                                 src={collection.image}
                                 alt={collection.title}
@@ -30,15 +34,12 @@ const IconsCollection = () => {
                                     {collection.title}
                                 </h3>
                                 <div>
-                                    <Link
-                                        href={collection.link}
-                                        className="inline-block bg-white text-black px-6 py-3 text-xs font-bold tracking-widest uppercase hover:bg-gray-200 transition-colors"
-                                    >
+                                    <div className="inline-block bg-white text-black px-6 py-3 text-xs font-bold tracking-widest uppercase hover:bg-gray-200 transition-colors">
                                         {collection.buttonText}
-                                    </Link>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </Container>
