@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { MessageSquare, MapPin, Mail, Phone } from "lucide-react";
 import { FaInstagram, FaTiktok, FaFacebookF } from "react-icons/fa";
 import Link from "next/link";
+import Image from "next/image";
 
 const ContactPage = () => {
     return (
@@ -12,9 +13,15 @@ const ContactPage = () => {
             <Container>
                 {/* Header Section */}
                 <div className="relative mb-20">
-                    <div className="h-64 w-full bg-gradient-to-b from-neutral-700 to-neutral-900 rounded-2xl overflow-hidden flex items-end p-8 relative">
+                    <div className="h-64 w-full bg-neutral-900 rounded-2xl overflow-hidden flex items-end p-8 relative">
+                        <Image
+                            src="/images/contact-us-card.png"
+                            alt="Contact Us"
+                            fill
+                            className="object-cover opacity-60 hover:scale-105 transition-transform duration-700"
+                        />
                         {/* Gradient Overlay for smooth text readability */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
