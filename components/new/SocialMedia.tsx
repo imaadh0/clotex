@@ -37,7 +37,7 @@ const getIcon = (platform: string) => {
 const SocialMedia = ({ className, iconClassName, tooltipClassName }: Props) => {
   return (
     <TooltipProvider>
-      <div className={cn("flex items-center gap-3.5 text-nuziiTextLight", className)}>
+      <div className={cn("flex items-center gap-3.5 text-gray-400", className)}>
         {socialMediaLinks.map((item) => (
           <Tooltip key={item.title}>
             <TooltipTrigger asChild>
@@ -46,7 +46,7 @@ const SocialMedia = ({ className, iconClassName, tooltipClassName }: Props) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
-                  "p-2 border border-nuziiSand rounded-full hover:text-nuziiRoseGoldDark hover:border-nuziiRoseGoldDark hover:bg-nuziiBeige hoverEffect",
+                  "p-2 border border-gray-800 rounded-full hover:text-white hover:border-white hover:bg-white/5 hoverEffect",
                   iconClassName
                 )}
               >

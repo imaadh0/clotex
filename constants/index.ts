@@ -1,8 +1,8 @@
 export const headerData = [
-  { title: "Shawls", href: "/shawls" },
-  { title: "Bags", href: "/bags" },
-  { title: "Jewellery", href: "/jewellery" },
-  { title: "Hijab Accessories", href: "/hijab-accessories" },
+  { title: "New Arrivals", href: "/category/new-arrivals" },
+  { title: "Shop All", href: "/shop" },
+  { title: "Collections", href: "/collections" },
+  { title: "Contact", href: "/contact" },
 ];
 
 export const productType = [
@@ -36,36 +36,31 @@ export const customerCareLinks = [
 ];
 
 export const socialMediaLinks = [
-  { title: "Instagram", href: "https://www.instagram.com/nuzi.co?igsh=aHJzYjExZXM2NGY5", platform: "instagram" },
-  { title: "TikTok", href: "https://www.tiktok.com/@nuzi.co?_r=1&_t=ZS-91h06CM6Tp3", platform: "tiktok" },
+  { title: "Instagram", href: "https://instagram.com", platform: "instagram" },
+  { title: "TikTok", href: "https://tiktok.com", platform: "tiktok" },
   { title: "Facebook", href: "https://facebook.com", platform: "facebook" },
-  { title: "WhatsApp Support", href: "https://wa.me/1234567890", platform: "whatsapp" },
+  { title: "WhatsApp Support", href: "https://wa.me/", platform: "whatsapp" },
 ];
 
 export const faqsData = [
   {
-    question: "What services does NUZII offer?",
+    question: "What items does Lee Mart offer?",
     answer:
-      "NUZII offers a wide range of technology solutions including custom software development, cloud services, and digital transformation consulting.",
+      "Lee Mart offers premium men's streetwear, including t-shirts, hoodies, shirts, and high-quality denim, designed for a modern urban lifestyle.",
   },
   {
-    question: "How can I get support for NUZII products?",
+    question: "How can I get support for Lee Mart products?",
     answer:
-      "You can reach our support team through our contact page or by emailing support@NUZII.com.",
+      "You can reach our support team through our contact page or by messaging us via WhatsApp for instant assistance.",
   },
   {
-    question: "Does NUZII offer training for its products?",
+    question: "Does Lee Mart offer international shipping?",
     answer:
-      "Yes, we offer comprehensive training programs for all our products and services. Please contact our sales team for more information.",
+      "Currently we focus on domestic delivery, but we are expanding our reach. Please check our shipping page for the latest updates.",
   },
   {
-    question: "What industries does NUZII serve?",
+    question: "How does Lee Mart ensure quality?",
     answer:
-      "NUZII serves a wide range of industries including finance, healthcare, retail, and manufacturing.",
-  },
-  {
-    question: "How does NUZII ensure data security?",
-    answer:
-      "We employ industry-standard security measures and comply with all relevant data protection regulations to ensure the security of our clients' data.",
+      "We use premium fabrics like heavy-weight combed cotton and 14oz selvedge denim, ensuring every piece meets our high standards for durability and fit.",
   },
 ];
