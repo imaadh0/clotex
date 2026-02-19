@@ -26,7 +26,7 @@ const HeaderMenu = ({ categories }: { categories: FEATURED_CATEGORIES_QUERYResul
             : ""
             }`}
         >
-          Shop
+          SHOP
           <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300" />
         </button>
 
@@ -34,7 +34,7 @@ const HeaderMenu = ({ categories }: { categories: FEATURED_CATEGORIES_QUERYResul
           <div className="bg-clotexGray border border-gray-800 p-4 min-w-[200px] flex flex-col gap-2 shadow-2xl">
             <Link
               href="/shop"
-              className="px-4 py-2 hover:bg-white hover:text-black rounded-sm text-gray-300 transition-colors uppercase text-xs font-bold tracking-wider"
+              className="px-4 py-2 hover:bg-white hover:text-black rounded-sm text-gray-300 transition-colors normal-case text-xs font-bold tracking-wider"
             >
               All Products
             </Link>

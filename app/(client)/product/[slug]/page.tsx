@@ -1,4 +1,4 @@
-import AddToCartButton from "@/components/AddToCartButton";
+import ProductInfo from "@/components/new/ProductInfo";
 import Container from "@/components/Container";
 import ImageView from "@/components/new/ImageView";
 import PriceView from "@/components/PriceView";
@@ -51,32 +51,9 @@ const ProductPage = async ({
               />
             </div>
 
-            {/* Size Selector (Placeholder for now, logic can be added) */}
-            <div>
-              <div className="flex justify-between items-center mb-3">
-                <p className="text-xs font-bold uppercase tracking-widest text-neutral-400">Select Size</p>
-                <button className="text-xs font-bold uppercase tracking-widest text-neutral-500 underline hover:text-white transition-colors">Size Guide</button>
-              </div>
-              <div className="grid grid-cols-4 gap-3">
-                {['S', 'M', 'L', 'XL'].map((size) => (
-                  <button key={size} className={`h-12 border border-neutral-800 rounded flex items-center justify-center text-sm font-bold hover:border-white transition-colors ${size === 'M' ? 'bg-white text-black border-white' : 'text-neutral-400'}`}>
-                    {size}
-                  </button>
-                ))}
-              </div>
-            </div>
+            {/* Product Info (Size Selection & Actions) */}
+            <ProductInfo product={product as any} />
 
-            {/* Actions */}
-            <div className="space-y-3">
-              <AddToCartButton
-                product={product}
-                className="w-full bg-white text-black h-14 font-black uppercase tracking-widest text-sm hover:bg-neutral-200 transition-colors"
-                showIcon={false}
-              />
-              <button className="w-full h-14 border border-neutral-800 text-white font-bold uppercase tracking-widest text-xs hover:bg-neutral-900 transition-colors">
-                Save to Wishlist
-              </button>
-            </div>
 
             {/* Description */}
             <div className="border-t border-neutral-800 pt-8 mt-4">

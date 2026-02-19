@@ -8,7 +8,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { motion } from "framer-motion";
 
 const CAROUSEL_IMAGES = [
- 
+
     {
         id: 1,
         src: "/images/landing/bg-carousel.png",
@@ -83,7 +83,7 @@ export default function Hero() {
                             className="object-contain brightness-0 invert"
                         />
                     </div> */}
-                    
+
 
                     {/* Headline */}
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-white leading-tight drop-shadow-lg">
@@ -120,11 +120,10 @@ export default function Hero() {
                     <button
                         key={index}
                         onClick={() => emblaApi?.scrollTo(index)}
-                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                            index === selectedIndex
+                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${index === selectedIndex
                                 ? "bg-white w-8"
                                 : "bg-white/50 hover:bg-white/80"
-                        }`}
+                            }`}
                         aria-label={`Go to slide ${index + 1}`}
                     />
                 ))}

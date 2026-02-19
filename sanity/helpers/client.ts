@@ -1,21 +1,15 @@
-import { client } from "../lib/client";
+// TEMPORARILY MODIFIED - using dummy data instead of Sanity
+// Original Sanity code commented out below
 
-// Client-safe version using regular client instead of sanityFetch
+// import { client } from "../lib/client";
+
 export const getMyOrders = async (userId: string) => {
-    if (!userId) {
-        throw new Error("User ID is required");
-    }
-    const MY_ORDERS_QUERY = `*[_type == 'order' && clerkUserId == $userId] | order(orderData desc){
-    ...,products[]{
-      ...,product->
-    }
-  }`;
+  // Original Sanity code:
+  // if (!userId) throw new Error("User ID is required");
+  // const MY_ORDERS_QUERY = `*[_type == 'order' && clerkUserId == $userId] | order(orderData desc){...,products[]{...,product->}}`;
+  // const orders = await client.fetch(MY_ORDERS_QUERY, { userId });
+  // return orders || [];
 
-    try {
-        const orders = await client.fetch(MY_ORDERS_QUERY, { userId });
-        return orders || [];
-    } catch (error) {
-        console.error("Error fetching orders:", error);
-        return [];
-    }
+  // Return empty orders for now (dummy mode)
+  return [];
 };

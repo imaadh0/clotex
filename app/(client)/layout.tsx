@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SanityLive } from "@/sanity/lib/live";
+// TEMPORARILY COMMENTED OUT - Sanity Live
+// import { SanityLive } from "@/sanity/lib/live";
 import { Toaster } from "react-hot-toast";
-import { VisualEditing } from "next-sanity";
-import { draftMode } from "next/headers";
-import DisableDraftMode from "@/components/DisableDraftMode";
+// import { VisualEditing } from "next-sanity";
+// import { draftMode } from "next/headers";
+// import DisableDraftMode from "@/components/DisableDraftMode";
 import { AuthProvider } from "@/context/AuthContext";
 
 export const metadata: Metadata = {
-  title: "NUZII",
-  description: "Elevate Your Everyday Style with NUZII",
+  title: "CLOTEX | Premium Streetwear",
+  description: "Redefine Your Edge — Premium Men's Streetwear Collection.",
 };
 
 export default async function RootLayout({
@@ -21,12 +22,14 @@ export default async function RootLayout({
   return (
     <AuthProvider>
       <div>
+        {/* TEMPORARILY COMMENTED OUT - Sanity Draft Mode
         {(await draftMode()).isEnabled && (
           <>
             <DisableDraftMode />
             <VisualEditing />
           </>
         )}
+        */}
         <Header />
         {children}
         <Footer />
@@ -39,7 +42,7 @@ export default async function RootLayout({
             },
           }}
         />
-        <SanityLive />
+        {/* TEMPORARILY COMMENTED OUT - <SanityLive /> */}
       </div>
     </AuthProvider>
   );

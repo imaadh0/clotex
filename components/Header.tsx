@@ -1,7 +1,9 @@
 import Link from "next/link";
 import React from "react";
 import Container from "./Container";
-import { getAllCategories } from "@/sanity/helpers";
+// TEMPORARILY COMMENTED OUT - Sanity
+// import { getAllCategories } from "@/sanity/helpers";
+import { DUMMY_CATEGORIES } from "@/constants/dummy-data";
 import HeaderMenu from "./new/HeaderMenu";
 import ClotexLogo from "./clotex/ClotexLogo";
 import { ListOrdered } from "lucide-react";
@@ -17,19 +19,19 @@ const Header = async () => {
   // Let's assume for now we just render the header and orders will be fetched client-side or we'll fix this later.
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const orders: any[] = [];
-  const categories = await getAllCategories(3);
+  const categories = DUMMY_CATEGORIES.slice(0, 3);
 
   return (
     <header className="bg-clotexDark/80 backdrop-blur-md sticky top-0 z-50 border-b border-white/10 py-4 transition-all duration-300">
       <Container className="flex items-center justify-between gap-4">
         {/* Left: Navigation Menu */}
         <div className="hidden xl:block w-1/3">
-          <HeaderMenu categories={categories} />
+          <HeaderMenu categories={categories as any} />
         </div>
 
         {/* Mobile Menu Trigger (Visible on mobile only) */}
         <div className="xl:hidden w-1/3">
-          <MobileMenu categories={categories} />
+          <MobileMenu categories={categories as any} />
         </div>
 
         {/* Center: Logo */}

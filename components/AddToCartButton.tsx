@@ -1,5 +1,7 @@
 "use client";
-import { Product } from "@/sanity.types";
+// TEMPORARILY MODIFIED - using DummyProduct instead of Sanity Product
+// import { Product } from "@/sanity.types";
+import { DummyProduct as Product } from "@/constants/dummy-data";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import PriceFormatter from "./PriceFormatter";
@@ -15,13 +17,14 @@ interface Props {
   className?: string;
   iconClassName?: string;
   showIcon?: boolean;
+  selectedSize?: string;
 }
 
-const AddToCartButton = ({ product, className, iconClassName, showIcon = true }: Props) => {
+const AddToCartButton = ({ product, className, iconClassName, showIcon = true, selectedSize }: Props) => {
   const { addItem, getItemCount } = useCartStore();
   const [isClient, setIsClient] = useState(false);
 
-  const itemCount = getItemCount(product?._id);
+  const itemCount = getItemCount(product?._id, selectedSize);
   const isOutOfStock = product?.stock === 0;
 
   useEffect(() => {
@@ -37,8 +40,8 @@ const AddToCartButton = ({ product, className, iconClassName, showIcon = true }:
       {itemCount ? (
         <div className="text-sm w-full">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs text-muted-foreground">Quantity</span>
-            <QuantityButtons product={product} />
+            <span className="text-xs text-muted-foreground uppercase font-bold tracking-widest text-neutral-400">Quantity</span>
+            <QuantityButtons product={product} selectedSize={selectedSize} />
           </div>
           <div className="flex items-center justify-between border-t border-neutral-800 pt-2">
             <span className="text-xs font-semibold">Subtotal</span>
@@ -50,7 +53,7 @@ const AddToCartButton = ({ product, className, iconClassName, showIcon = true }:
       ) : (
         <Button
           onClick={() => {
-            addItem(product);
+            addItem(product, selectedSize);
             toast.success(
               `${product?.name?.substring(0, 12)}... added successfully!`
             );

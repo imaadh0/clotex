@@ -2,13 +2,15 @@ import Link from "next/link";
 import ClotexLogo from "./clotex/ClotexLogo";
 import SocialMedia from "./new/SocialMedia";
 import { customerCareLinks } from "@/constants";
-import { getAllCategories } from "@/sanity/helpers";
+// TEMPORARILY COMMENTED OUT - Sanity
+// import { getAllCategories } from "@/sanity/helpers";
+import { DUMMY_CATEGORIES } from "@/constants/dummy-data";
 import { ArrowRight } from "lucide-react";
-import type { Category } from "@/sanity.types";
+// import type { Category } from "@/sanity.types";
 
 const Footer = async () => {
-  // Fetch categories from Sanity
-  const categories = await getAllCategories();
+  // TEMPORARILY using dummy data instead of Sanity
+  const categories = DUMMY_CATEGORIES;
 
   return (
     <footer className="bg-clotexDark border-t border-gray-800 pt-16 pb-8">
@@ -35,7 +37,7 @@ const Footer = async () => {
             <h3 className="font-bold text-white uppercase tracking-widest text-sm mb-6">Collections</h3>
             <ul className="space-y-3">
               {categories && categories.length > 0 ? (
-                categories.map((category: Category) => (
+                categories.map((category: any) => (
                   <li key={category.slug?.current || category._id}>
                     <Link
                       href={`/category/${category.slug?.current}`}

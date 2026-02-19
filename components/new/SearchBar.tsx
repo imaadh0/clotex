@@ -8,22 +8,24 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog";
-import { client } from "@/sanity/lib/client";
+// TEMPORARILY COMMENTED OUT - Sanity client
+// import { client } from "@/sanity/lib/client";
+import { searchDummyProducts, type DummyProduct } from "@/constants/dummy-data";
 import { Input } from "../ui/input";
 import AddToCartButton from "../AddToCartButton";
 import { urlFor } from "@/sanity/lib/image";
-import { Product } from "@/sanity.types";
+// import { Product } from "@/sanity.types";
 import PriceView from "../PriceView";
 import Image from "next/image";
 import Link from "next/link";
 
 const SearchBar = () => {
   const [search, setSearch] = useState("");
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<DummyProduct[]>([]);
   const [loading, setLoading] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
 
-  // Fetch products from Sanity based on search input
+  // Search products using dummy data
   const fetchProducts = useCallback(async () => {
     if (!search) {
       setProducts([]);
@@ -32,9 +34,14 @@ const SearchBar = () => {
 
     setLoading(true);
     try {
-      const query = `*[_type == "product" && name match $search] | order(name asc)`;
-      const params = { search: `${search}*` };
-      const response = await client.fetch(query, params);
+      // Original Sanity code:
+      // const query = `*[_type == "product" && name match $search] | order(name asc)`;
+      // const params = { search: `${search}*` };
+      // const response = await client.fetch(query, params);
+      // setProducts(response);
+
+      // Dummy data search:
+      const response = searchDummyProducts(search);
       setProducts(response);
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -43,13 +50,13 @@ const SearchBar = () => {
     }
   }, [search]);
 
-  // Debounce input changes to reduce API calls
+  // Debounce input changes
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
       fetchProducts();
-    }, 300); // Delay of 300ms
+    }, 300);
 
-    return () => clearTimeout(debounceTimer); // Cleanup the timer
+    return () => clearTimeout(debounceTimer);
   }, [search, fetchProducts]);
   return (
     <Dialog open={showSearch} onOpenChange={() => setShowSearch(!showSearch)}>
@@ -59,48 +66,48 @@ const SearchBar = () => {
       >
         <Search className="w-5 h-5 hover:text-darkColor hoverEffect" />
       </DialogTrigger>
-      <DialogContent className="max-w-5xl min-h-[90vh] max-h-[90vh] flex flex-col overflow-hidden bg-white">
+      <DialogContent className="max-w-5xl min-h-[90vh] max-h-[90vh] flex flex-col overflow-hidden bg-[#0a0a0a] border-neutral-800 text-white">
         <DialogHeader>
-          <DialogTitle className="mb-3">Product Searchbar</DialogTitle>
+          <DialogTitle className="mb-3 text-white">Search Products</DialogTitle>
           <form className="relative" onSubmit={(e) => e.preventDefault()}>
             <Input
-              placeholder="Search your product here..."
-              className="flex-1 rounded-md py-5 font-semibold"
+              placeholder="Search for t-shirts, pants, denim..."
+              className="flex-1 rounded-md py-5 font-semibold bg-neutral-900 border-neutral-800 text-white placeholder:text-neutral-500"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
             {search && (
               <X
                 onClick={() => setSearch("")}
-                className="w-4 h-4 absolute top-3 right-11 hover:text-red-600 hoverEffect"
+                className="w-4 h-4 absolute top-3 right-11 hover:text-red-500 hoverEffect cursor-pointer"
               />
             )}
             <button
               type="submit"
-              className="absolute right-0 top-0 bg-darkColor/10 w-10 h-full flex items-center justify-center rounded-tr-md hover:bg-darkColor hover:text-white hoverEffect"
+              className="absolute right-0 top-0 bg-neutral-800 w-10 h-full flex items-center justify-center rounded-tr-md hover:bg-white hover:text-black hoverEffect"
             >
               <Search className="w-5 h-5" />
             </button>
           </form>
         </DialogHeader>
-        <div className="w-full h-full overflow-y-scroll border border-darkColor/20 rounded-md bg-white">
+        <div className="w-full h-full overflow-y-scroll border border-neutral-800 rounded-md bg-[#0a0a0a]">
           <div className="">
             {loading ? (
-              <p className="flex items-center px-6 gap-1 py-10 text-center text-green-600 font-semibold">
+              <p className="flex items-center px-6 gap-1 py-10 text-center text-white font-semibold">
                 <Loader2 className="w-5 h-5 animate-spin" />
-                Searching on progress...
+                Searching...
               </p>
             ) : products?.length ? (
-              products.map((product: Product) => (
+              products.map((product) => (
                 <div
                   key={product?._id}
-                  className="bg-white overflow-hidden border-b"
+                  className="bg-[#0a0a0a] overflow-hidden border-b border-neutral-800"
                 >
                   <div className="flex items-center p-1">
                     <Link
                       href={`/product/${product?.slug?.current}`}
                       onClick={() => setShowSearch(false)}
-                      className="h-20 w-20 md:h-24 md:w-24 flex-shrink-0 border border-darkColor/20 rounded-md overflow-hidden group"
+                      className="h-20 w-20 md:h-24 md:w-24 flex-shrink-0 border border-neutral-800 rounded-md overflow-hidden group"
                     >
                       {product?.images && (
                         <Image
@@ -118,10 +125,10 @@ const SearchBar = () => {
                           href={`/product/${product?.slug?.current}`}
                           onClick={() => setShowSearch(false)}
                         >
-                          <h3 className="text-sm md:text-lg font-semibold text-gray-800 line-clamp-1">
+                          <h3 className="text-sm md:text-lg font-semibold text-white line-clamp-1">
                             {product.name}
                           </h3>
-                          <p className="text-sm text-gray-600 line-clamp-1">
+                          <p className="text-sm text-neutral-400 line-clamp-1">
                             {product?.variantInfo}
                           </p>
                         </Link>
@@ -133,7 +140,8 @@ const SearchBar = () => {
                       </div>
 
                       <div className="w-60 mt-1">
-                        <AddToCartButton product={product} />
+                        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                        <AddToCartButton product={product as any} />
                       </div>
                     </div>
                   </div>
@@ -141,16 +149,16 @@ const SearchBar = () => {
               ))
             ) : (
               <div className="text-center py-10 font-semibold tracking-wide">
-                {search && products?.length ? (
-                  <p>
-                    Nothing match with the keyword{" "}
-                    <span className="underline text-red-600">{search}</span>.
-                    Please try something else.
+                {search && !products?.length ? (
+                  <p className="text-neutral-400">
+                    Nothing matches{" "}
+                    <span className="underline text-red-500">{search}</span>.
+                    Try something else.
                   </p>
                 ) : (
-                  <p className="text-green-600 flex items-center justify-center gap-1">
+                  <p className="text-neutral-500 flex items-center justify-center gap-1">
                     <Search className="w-5 h-5" />
-                    Search and explore your products from NUZII.
+                    Search and explore products from CLOTEX.
                   </p>
                 )}
               </div>

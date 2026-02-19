@@ -1,76 +1,29 @@
-import { client } from "@/sanity/lib/client";
-import {
-  SHOP_HERO_QUERY,
-  PRODUCT_SHOWCASE_QUERY,
-  PROMO_GRID_BANNERS_QUERY,
-  MID_PAGE_BANNERS_QUERY,
-  NEW_ARRIVALS_QUERY,
-  BEST_SELLING_QUERY,
-  TOP_RATED_QUERY,
-  FEATURED_CATEGORIES_QUERY,
-  ALL_PRODUCTS_QUERY,
-} from "@/sanity/helpers/shopQueries";
-import ShopHero from "@/components/shop/ShopHero";
-import ProductShowcaseRow from "@/components/shop/ProductShowcaseRow";
-import PromotionalSection from "@/components/shop/PromotionalSection";
-import FeaturedProducts from "@/components/shop/FeaturedProducts";
-import MidPageBanners from "@/components/shop/MidPageBanners";
-import FeaturedCategories from "@/components/shop/FeaturedCategories";
-import AllProductsSection from "@/components/shop/AllProductsSection";
+import Container from "@/components/Container";
+import CategoryProducts from "@/components/new/CategoryProducts";
+import Title from "@/components/Title";
+// TEMPORARILY MODIFIED - using dummy data instead of Sanity
+import { DUMMY_CATEGORIES } from "@/constants/dummy-data";
+import React from "react";
 
 const ShopPage = async () => {
-  // Fetch all data in parallel
-  const [
-    heroes,
-    showcases,
-    promoBanners,
-    midPageBanners,
-    newArrivals,
-    bestSelling,
-    topRated,
-    categories,
-    allProducts,
-  ] = await Promise.all([
-    client.fetch(SHOP_HERO_QUERY),
-    client.fetch(PRODUCT_SHOWCASE_QUERY),
-    client.fetch(PROMO_GRID_BANNERS_QUERY),
-    client.fetch(MID_PAGE_BANNERS_QUERY),
-    client.fetch(NEW_ARRIVALS_QUERY),
-    client.fetch(BEST_SELLING_QUERY),
-    client.fetch(TOP_RATED_QUERY),
-    client.fetch(FEATURED_CATEGORIES_QUERY),
-    client.fetch(ALL_PRODUCTS_QUERY),
-  ]);
+  const categories = DUMMY_CATEGORIES;
+  const slug = "all"; // Default to "all" for the main shop page
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
-      {/* Hero Section */}
-      <ShopHero heroes={heroes} />
+      <Container className="py-10">
+        <Title className="text-xl text-white">
+          Shop:{" "}
+          <span className="font-bold text-white capitalize tracking-wide">
+            All Streetwear
+          </span>
+        </Title>
 
-      {/* Product Showcase Sections (Seasonal/Offers) */}
-      <ProductShowcaseRow showcases={showcases} />
-
-      {/* Promotional Grid Section */}
-      <PromotionalSection banners={promoBanners} />
-
-      {/* Featured Products with Tabs */}
-      <FeaturedProducts
-        newArrivals={newArrivals}
-        bestSelling={bestSelling}
-        topRated={topRated}
-      />
-
-      {/* Mid-Page Banners */}
-      <MidPageBanners banners={midPageBanners} />
-
-      {/* All Products Section with Category Filter */}
-      <AllProductsSection categories={categories} initialProducts={allProducts} />
-
-      {/* Featured Categories */}
-      <FeaturedCategories categories={categories} />
+        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+        <CategoryProducts categories={categories as any} slug={slug} />
+      </Container>
     </div>
   );
 };
 
 export default ShopPage;
-

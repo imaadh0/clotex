@@ -1,4 +1,6 @@
-import { Product } from "@/sanity.types";
+// TEMPORARILY MODIFIED - using DummyProduct instead of Sanity Product
+// import { Product } from "@/sanity.types";
+import { DummyProduct as Product } from "@/constants/dummy-data";
 import React from "react";
 import {
   Accordion,

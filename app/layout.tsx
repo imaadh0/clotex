@@ -4,8 +4,8 @@ import { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "NUZII",
-  description: "Elevate Your Everyday Style with NUZII",
+  title: "CLOTEX | Redefine Your Edge",
+  description: "Premium Men's Streetwear — Minimalist, bold, and crafted for the modern urban lifestyle.",
 };
 
 const poppins = localFont({

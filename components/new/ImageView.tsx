@@ -1,27 +1,26 @@
 "use client";
-import {
-  internalGroqTypeReferenceTo,
-  SanityImageCrop,
-  SanityImageHotspot,
-} from "@/sanity.types";
-import { urlFor } from "@/sanity/lib/image";
+// TEMPORARILY MODIFIED - using dummy data instead of Sanity
+
+// Original Sanity imports:
+// import {
+//   internalGroqTypeReferenceTo,
+//   SanityImageCrop,
+//   SanityImageHotspot,
+// } from "@/sanity.types";
+// import { urlFor } from "@/sanity/lib/image";
+
 import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
+interface DummyImage {
+  _key: string;
+  _type: "image";
+  url: string;
+}
+
 interface Props {
-  images?: Array<{
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-    _key: string;
-  }>;
+  images?: DummyImage[];
 }
 
 const ImageView = ({ images = [] }: Props) => {
@@ -38,7 +37,7 @@ const ImageView = ({ images = [] }: Props) => {
           className="w-full max-h-[550px] min-h-[450px] bg-neutral-900/50 border border-neutral-800 rounded-xl overflow-hidden group relative"
         >
           <Image
-            src={urlFor(active).url()}
+            src={active?.url || "/images/placeholder.png"}
             alt="productImage"
             width={700}
             height={700}
@@ -52,13 +51,13 @@ const ImageView = ({ images = [] }: Props) => {
           <button
             key={image._key}
             onClick={() => setActive(image)}
-            className={`relative w-20 h-24 flex-shrink-0 border-2 rounded-lg overflow-hidden transition-all ${active._key === image._key
-                ? "border-white ring-2 ring-white/20"
-                : "border-neutral-800 opacity-60 hover:opacity-100 hover:border-neutral-600"
+            className={`relative w-20 h-24 flex-shrink-0 border-2 rounded-lg overflow-hidden transition-all ${active?._key === image._key
+              ? "border-white ring-2 ring-white/20"
+              : "border-neutral-800 opacity-60 hover:opacity-100 hover:border-neutral-600"
               }`}
           >
             <Image
-              src={urlFor(image).url()}
+              src={image.url}
               alt={`Thumbnail ${image._key}`}
               fill
               sizes="80px"

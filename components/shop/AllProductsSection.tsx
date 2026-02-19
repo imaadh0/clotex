@@ -1,15 +1,20 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { client } from "@/sanity/lib/client";
+// TEMPORARILY COMMENTED OUT - Sanity client
+// import { client } from "@/sanity/lib/client";
+import { DUMMY_PRODUCTS, getProductsByDummyCategory } from "@/constants/dummy-data";
 import ProductCard from "@/components/ProductCard";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown, Loader2 } from "lucide-react";
-import { FEATURED_CATEGORIES_QUERYResult, ALL_PRODUCTS_QUERYResult } from "@/sanity.types";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// import { FEATURED_CATEGORIES_QUERYResult, ALL_PRODUCTS_QUERYResult } from "@/sanity.types";
 
 interface AllProductsSectionProps {
-    categories: FEATURED_CATEGORIES_QUERYResult;
-    initialProducts: ALL_PRODUCTS_QUERYResult;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    categories: any[];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    initialProducts: any[];
 }
 
 export default function AllProductsSection({
@@ -24,15 +29,23 @@ export default function AllProductsSection({
     const fetchProducts = async (categorySlug: string) => {
         try {
             setLoading(true);
-            let query = "";
 
+            // Original Sanity code:
+            // let query = "";
+            // if (categorySlug === "all") {
+            //     query = `*[_type == "product"] | order(name asc)`;
+            // } else {
+            //     query = `*[_type == 'product' && references(*[_type == "category" && slug.current == $categorySlug]._id)] | order(name asc)`;
+            // }
+            // const data = await client.fetch(query, { categorySlug });
+
+            // Dummy data filtering:
+            let data;
             if (categorySlug === "all") {
-                query = `*[_type == "product"] | order(name asc)`;
+                data = DUMMY_PRODUCTS;
             } else {
-                query = `*[_type == 'product' && references(*[_type == "category" && slug.current == $categorySlug]._id)] | order(name asc)`;
+                data = getProductsByDummyCategory(categorySlug);
             }
-
-            const data = await client.fetch(query, { categorySlug });
             setProducts(data);
         } catch (error) {
             console.error("Error fetching products:", error);
@@ -66,7 +79,7 @@ export default function AllProductsSection({
                             Browse Our Collection
                         </h2>
                         <p className="text-lg text-gray-400 font-light">
-                            Explore our complete range of modest fashion
+                            Explore our complete range of premium streetwear
                         </p>
                     </div>
 
@@ -158,7 +171,7 @@ export default function AllProductsSection({
                 {/* Product Count */}
                 {!loading && products?.length > 0 && (
                     <div className="text-center mt-8">
-                        <p className="text-nuziiTextLight font-light">
+                        <p className="text-neutral-500 font-light">
                             Showing {products.length} product{products.length !== 1 ? "s" : ""}
                         </p>
                     </div>
