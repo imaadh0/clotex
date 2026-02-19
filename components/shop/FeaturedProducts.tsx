@@ -68,7 +68,7 @@ export default function FeaturedProducts({
                         className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
                     >
                         {currentProducts?.slice(0, 12).map((product) => (
-                            <ProductCard key={product._id} product={product as Product} />
+                            <ProductCard key={product._id} product={product as any} />
                         ))}
                     </motion.div>
                 </AnimatePresence>

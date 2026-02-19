@@ -43,7 +43,7 @@ export default function ProductShowcaseRow({ showcases }: ProductShowcaseRowProp
                             {/* Products Grid - 4 columns */}
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                                 {showcase.products?.slice(0, 4).map((product) => (
-                                    <ProductCard key={product._id} product={product as Product} />
+                                    <ProductCard key={product._id} product={product as any} />
                                 ))}
                             </div>
 

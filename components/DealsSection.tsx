@@ -45,7 +45,7 @@ const DealsSection = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <ProductCard key={product?._id} product={product} />
+                <ProductCard key={product?._id} product={product as any} />
               </motion.div>
             </AnimatePresence>
           ))}
