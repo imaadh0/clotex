@@ -1,0 +1,37 @@
+import React from "react";
+import localFont from "next/font/local";
+import { Metadata } from "next";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "NUZII",
+  description: "Elevate Your Everyday Style with NUZII",
+};
+
+const poppins = localFont({
+  src: "./fonts/Poppins.woff2",
+  variable: "--font-poppins",
+  weight: "400",
+  preload: false,
+});
+const raleway = localFont({
+  src: "./fonts/Raleway.woff2",
+  variable: "--font-raleway",
+  weight: "100 900",
+});
+
+const RootLayout = ({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) => {
+  return (
+    <html lang="en">
+      <body className={`${poppins.variable} ${raleway.variable} antialiased`}>
+        {children}
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
