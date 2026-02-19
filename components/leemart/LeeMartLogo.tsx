@@ -7,7 +7,7 @@ interface Props {
 
 const LeeMartLogo = ({ className }: Props) => {
     return (
-        <Link href={"/"} className={cn("text-2xl font-black tracking-tighter uppercase text-white", className)}>
+        <Link href={"/"} className={cn("text-xl md:text-2xl font-black tracking-tighter uppercase text-white whitespace-nowrap", className)}>
             LEE MART<span className="text-gray-500">.</span>
         </Link>
     );
