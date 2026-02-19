@@ -6,6 +6,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Lee Mart | Redefine Your Edge",
   description: "Premium Men's Streetwear — Minimalist, bold, and crafted for the modern urban lifestyle.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 const poppins = localFont({
