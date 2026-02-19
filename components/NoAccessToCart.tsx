@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import Logo from "./new/Logo";
+import ClotexLogo from "./clotex/ClotexLogo";
 
 const NoAccessToCart = () => {
   return (
@@ -16,7 +16,7 @@ const NoAccessToCart = () => {
       <Card className="w-full max-w-md bg-neutral-900 border-neutral-800">
         <CardHeader className="space-y-1">
           <div className="flex justify-center mb-4">
-            <Logo />
+            <ClotexLogo className="text-3xl" />
           </div>
           <CardTitle className="text-2xl font-bold text-center text-white">
             Welcome Back!
